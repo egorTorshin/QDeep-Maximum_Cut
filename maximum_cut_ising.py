@@ -15,7 +15,7 @@
 # ------ Import necessary packages ----
 from collections import defaultdict
 
-from dwave.system.samplers import DWaveSampler
+from neal import SimulatedAnnealingSampler
 from dwave.system.composites import EmbeddingComposite
 from matplotlib import pyplot as plt
 import networkx as nx
@@ -44,7 +44,7 @@ chainstrength = 2
 numruns = 10
 
 # Run the QUBO on the solver from your config file
-sampler = EmbeddingComposite(DWaveSampler())
+sampler = SimulatedAnnealingSampler()
 response = sampler.sample_ising(h, J,
                                 chain_strength=chainstrength,
                                 num_reads=numruns,
